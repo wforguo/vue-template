@@ -14,12 +14,14 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@cloudbase/node-sdk": "^2.3.4",
         "@cloudbase/vue-provider": "^0.3.0",
         "axios": "^0.18.0",
         "core-js": "^3.6.5",
         "dayjs": "^1.8.33",
         "html-webpack-plugin": "latest",
         "loaders.css": "^0.1.2",
+        "moment": "^2.29.0",
         "qs": "latest",
         "swiper": "^4.5.0",
         "vant": "^2.10.6",
