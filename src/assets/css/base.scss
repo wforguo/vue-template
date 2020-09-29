@@ -1,0 +1,141 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-family: "微软雅黑", "Microsoft YaHei", "PingFangSC-Regular", "sans-serif", "STHeitiSC-Light";
+    -webkit-user-select: none;
+    /* 禁用长触选择文字等功能 */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    /* 禁用长触弹出的下载图片菜单 */
+    -moz-touch-callout: none;
+    -ms-touch-callout: none;
+    -o-touch-callout: none;
+    touch-callout: none;
+    overflow-scrolling: touch;
+}
+
+li {
+    list-style: none;
+}
+
+i {
+    font-style: normal;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    /*color: ;*/
+}
+
+.cle:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+/*去除input[type=number]安卓端上下箭头*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    margin: 0;
+}
+
+.f_right {
+    float: right;
+}
+
+
+/*去除input[type=number]上下箭头*/
+
+
+/*在chrome下：*/
+/*
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0;
+}*/
+
+
+/*Firefox下：*/
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+    transition: all .5s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter
+    /* .slide-fade-leave-active for below version 2.1.8 */
+{
+    transform: translateY(10px);
+    opacity: 0.3;
+}
+
+.slide-fade-leave-to {
+    transform: translateY(5px);
+    opacity: 0.3;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */
+{
+    opacity: 0
+}
+
+::-webkit-scrollbar {
+    display: none;
+    opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+    opacity: 0;
+}
