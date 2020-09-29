@@ -6,7 +6,6 @@
                 <router-view></router-view>
             </keep-alive>
         </transition>
-        <!--<router-view v-if="!$route.meta.keepAlive"></router-view>-->
         <transition name="fade">
             <div class="loader" v-show="isloading">
                 <div class="loader-mask"></div>

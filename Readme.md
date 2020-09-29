@@ -80,6 +80,17 @@ module.exports = {
 
 https://github.com/ConnorAtherton/loaders.css
 
+## 云开发
+
+### demo
+
+见 `pages/Intro` 页面
+
+### 使用
+
+- 1.修改 `cloudbaserc.js`
+
+- 2.修改项目部署路径 `vueconfig.js`
 
 ## 测试链接
 

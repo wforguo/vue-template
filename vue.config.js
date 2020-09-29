@@ -1,7 +1,15 @@
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+
+/**
+ * html-webpack-plugin 的作用是：当使用 webpack打包时，创建一个 html 文件，并把 webpack 打包后的静态文件自动插入到这个 html 文件当中。
+ */
+
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 // Vue 打包性能
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+// 代码压缩
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // 增加环境变量
 process.env.VUE_APP_VERSION = require('./package.json').version;
@@ -16,25 +24,8 @@ module.exports = {
         // // 移除 preload 插件
         config.plugins.delete('preload');
     },
-    configureWebpack: {
-        plugins: [
-            new ScriptExtHtmlWebpackPlugin({
-                custom: {
-                    test: /\.js$/,
-                    attribute: 'charset',
-                    value: 'utf-8'
-                }
-            })
-            // new HtmlWebpackPlugin({
-            //     // filename: path.resolve(__dirname, './index.html'),
-            //     template: 'public/index.html',
-            //     inject: true
-            // }),
-            // new WebpackCdnPlugin(cdnLoader(true))
-            // new BundleAnalyzerPlugin()
-        ]
-    },
     devServer: {
+        port: '10086',
         proxy: {
             '/api': {
                 target: 'https://forguo.cn',
@@ -46,9 +37,8 @@ module.exports = {
             }
         }
     },
-    outputDir: 'science-week',
     publicPath: process.env.NODE_ENV === 'production'
-        ? 'https://cms.forguo.cn/apps-t/science-week'
-        // ? 'https://cms.forguo.cn/apps/science-week'
+        ? 'https://app.forguo.cn/apps/cloud-app'
+        // ? 'https://cms.forguo.cn/apps-t/cloud-app'
         : '/'
 };

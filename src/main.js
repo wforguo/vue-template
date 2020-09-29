@@ -1,6 +1,9 @@
 import Vue from 'vue'
+import CloudBase from '@cloudbase/vue-provider';
+import { Lazyload } from 'vant';
 import App from './App.vue'
 import './assets/js/flexible';
+import config from '../cloudbaserc';
 import router from './router'
 import store from './store'
 // import VueLazyLoad from 'vue-lazyload'
@@ -20,6 +23,12 @@ document.body.addEventListener('touchstart', function () {
 });
 
 Vue.config.productionTip = false;
+
+Vue.use(Lazyload);
+
+Vue.use(CloudBase, {
+    env: config.envId
+});
 
 new Vue({
     router,

@@ -1,88 +1,93 @@
 <template>
-    <div class="info" id="Info">
-        <transition name="text">
-            <img alt="" class="index-logo" src="../assets/imgs/index-logo.png" v-show="isTrans">
-        </transition>
-        <transition name="text">
-            <img alt="" class="index-tips" src="../assets/imgs/index-tips.png" v-show="isTrans">
-        </transition>
+    <div class="hello">
+        <h4>====== 云上 - 云开发 ======</h4>
 
-        <div class="header-title">
-            <p class="header-title-main">活动流程</p>
-            <p class="header-title-second">ACTIVITY FLOW</p>
-        </div>
+        <template v-if="isLoginSuccss">
+            <LoginState v-slot="{ loginState }">
+                <h2>登录云开发</h2>
+                <p>{{ loginState ? "已登录" : "未登录" }}</p>
+            </LoginState>
 
-        <div class="schedule">
+            <h2>调用云函数</h2>
+            <p class="function">
+                <Button @click="callFunction">身份校验</Button>
+            </p>
+        </template>
 
-            <div class="schedule-list">
-                <div :key="index" class="schedule-item" v-for="(item, index) in schList">
-                    <div class="schedule-text">
-                        {{item.text}}
-                    </div>
-                </div>
-            </div>
+        <h4>====== 查询结果 ======</h4>
+
+        <div v-for="(item, index) in userList" :key="index">
+            <p>姓名：{{ item.userName }}</p>
+            <p>手机号：{{ item.userMobile }}</p>
         </div>
 
     </div>
 </template>
 
 <script>
-    // @ is an alias to /src
+    import { Button } from 'vant';
 
     export default {
-        name: 'info',
+        name: 'HelloWorld',
         data () {
             return {
-                isTrans: false,
-                schList: window.schList
+                isLoginSuccss: null,
+                envId: '',
+                callFunctionResult: '',
+                userList: []
+            };
+        },
+        components: {
+            Button
+        },
+        async created () {
+            this.envId = this.$cloudbase.config.env;
+            // 以匿名登录为例
+            try {
+                const auth = this.$cloudbase.auth({ persistence: 'local' });
+
+                if (!auth.hasLoginState()) {
+                    await auth.anonymousAuthProvider().signIn();
+                }
+
+                console.log('用户id', auth.hasLoginState().user.uid);
+
+                this.isLoginSuccss = true;
+            } catch (e) {
+                if (e.message.includes('100007')) {
+                    this.isLoginSuccss = false;
+                }
+                console.error(e);
+                console.log(e.code);
             }
         },
-        mounted () {
-            this.isTrans = true
-        }
-    }
-</script>
-
-<style lang="less" scoped>
-    .info {
-        position: relative;
-        width: 100%;
-        height: calc(100vh - 135px);
-        background-size: 100% 100%;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        overflow-y: auto;
-
-        .schedule {
-            width: 550px;
-            margin: 0 auto;
-
-            &-list {
-
-            }
-
-            &-item {
-                width: 100%;
-                text-align: center;
-                white-space: pre-line;
-                word-break: break-word;
-                font-size: 38px;
-                font-weight: 400;
-                color: rgba(255, 255, 255, 1);
-                margin-bottom: 50px;
-                line-height: 60px;
-                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAYAAAArK+5dAAABFElEQVRIia3SMU4CQRiG4U+0IYGKgkRLCmNMOAEhsZKaC9hYGDgA3sA7UFF4CeJRvAaU+poBx2zGnZ3/Z9lkit3Jvs/szgi4AsaAzjj6wF3odSR9S5pImuo8V1/SUtLXofa76vAVC2Da8ivCyl+B2/isOtkW+RdPgTZIbbwOOAXJxiPQA+5PRHLxv2a4GQBbYOZEmuIb4KX6i0ZOpBQPcxfpHlgRc7xuk0vIoyeeO0VNyLMnHoHwwtyIpCMXvwaeIrDieK2cSC5+A3wCO6AbHlwC706kFN8DD9U98CDmeLrJFmTuidedohLy4YnnjmkTMvTEc0AJMcebgBJiipeAHGKOW4AUefPErUCKmOMeICJrTxzQD842EUr+fWHeAAAAAElFTkSuQmCC") no-repeat 50% 100%;
-                background-size: 24px 25px;
-
-                &:nth-last-child(1) {
-                    background: none;
+        methods: {
+            async callFunction () {
+                try {
+                    const res = await this.$cloudbase.callFunction({
+                        name: 'china-goods-check-user',
+                        data: {
+                            userMobile: '10086'
+                        }
+                    });
+                    this.userList = res.result.data;
+                } catch (e) {
+                    this.userList = [];
                 }
             }
-
-            &-text {
-                padding-bottom: 60px;
-            }
         }
+    };
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+    .hello {
+        max-width: 500px;
+        margin: 0 auto;
+        word-break: break-all;
+        font-size: 24px;
+        text-align: center;
+        color: #fff;
+        line-height: 100px;
     }
 </style>

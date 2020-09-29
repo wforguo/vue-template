@@ -10,7 +10,42 @@
 }
 
 .btn-hover {
-    &:active {
-        opacity: .75;
+    &:hover {
+        opacity: 0.75;
     }
+    &:active {
+        opacity: 0.75;
+    }
+}
+
+.indent {
+    display: inline-block;
+    text-indent: 2em;
+}
+
+@supports (bottom: constant(safe-area-inset-bottom)) {
+    .page {
+        /* 适配底部黑条*/
+        padding-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+        padding-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+    }
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    /*height: calc(100vh - 45px);*/
+    height: 100vh;
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+    padding-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+}
+
+#app {
+    background: #041A70;
+    overflow: auto;
 }

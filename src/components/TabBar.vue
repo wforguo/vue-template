@@ -22,7 +22,7 @@
                     {
                         type: 'intro',
                         icon: (() => require('../assets/tab/icon-info.png'))(),
-                        text: '信息'
+                        text: '云上'
                     },
                     {
                         type: 'video',
@@ -44,8 +44,7 @@
                         icon: (() => require('../assets/tab/icon-year.png'))(),
                         text: '20周年'
                     }
-                ],
-                routeArr: ['home', 'intro', 'video', 'news', 'show', 'year']
+                ]
             }
         },
         methods: {

@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0,viewport-fit=cover">
     <meta name="format-detection" content="telephone=yes"/>
-    <meta name="Description" content="云上"/>
-    <meta name="Keywords" content="云上"/>
+    <meta name="Description" content="<%= htmlWebpackPlugin.options.title %>"/>
+    <meta name="Keywords" content="<%= htmlWebpackPlugin.options.title %>"/>
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
-    <title>云上</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
 
     <style>
         html {
@@ -23,7 +23,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #041A70;
+            /*background-color: #041A70;*/
         }
 
         /*body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小*/
@@ -239,7 +239,6 @@
         desc: [ "浙江泽洋海洋能源开发股份有限公司是一家集交直流电机、海洋工程装备、模块化海洋能发电设备、低水头水力发电设备、电控系统、声学超材料、晶须材料的研发、设计、生产和销售为一体的技术密集型企业。", "公司拥有完善的检测设备及检测手段，并严格按BSEN ISO9001质量管理体系和欧共体CE、德国莱因TUV等产品认证的要求，确保产品每一道工序得到严格把关。目前在市场同类产品中，泽洋的产品具有明显先进性。", "核心产品是：模块化海洋多能互补发电设备、低水头水力发电设备、各类交直流发电机、声学超材料产品。", "公司与“一带一路”国家印尼、几内亚、冈比亚等国家进行战略合作，为用电困难国家和地区提供全方位的供电解决方案及发电产品，秉承“节约能源，奉献社会”的宗旨，坚持“创新引领未来，科技服务社会”的信念，坚持创新，以优质的产品质量，博得了新老客户的青睐。" ]
     },
 
-
         {
             title: "杭州魔点科技有限公司",
             logo: "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%AD%94%E7%82%B9%E7%A7%91%E6%8A%80/Logo1.jpg",
@@ -247,20 +246,12 @@
             desc: [ "魔点科技，成立于2016年12月底，总部位于浙江杭州。魔点是一家将先进的人工智能技术与行业应用相结合的科技型企业，深耕智能办公、智慧校园和智慧社区等领域。凭借领先的产品化能力和高效的数据服务水平，魔点助推人工智能技术场景化落地，让科技服务于人，让数据创造价值。同时，依托 “云+端”开放OPENAPI的核心模式，魔点赋能各行业实现数字化升级。", "疫情期间，为保障复工安全，魔点融合热成像技术与人脸识别技术，部署实现“口罩”人脸识别、非接触测温、非接触考勤、非接触梯控、异常体温警报、出入实名管理等多个场景应用解决方案。该方案已被纳入“浙江省数字经济防疫首批企业名单”以及“杭州市支持企业远程办公助力复工防疫产品和服务目录”。" ]
         },
 
-
-
-
         {
             title: "浙江博城机器人科技有限公司",
             logo: "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/bocheng/5.jpg",
             imgs: [ "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/bocheng/1.jpg", "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/bocheng/2.jpg", "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/bocheng/3.jpg", "https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/bocheng/4.jpg" ],
             desc: [ "浙江博城机器人科技有限公司成立于2018年，是浙江环卫行业龙头企业——浙江波普环境服务有限公司的子公司。博城依托的中城绿建科技有限公司技术实力雄厚，已在固废资源化产业耕耘多年，2017年推出的全国首套智能视觉垃圾分拣机器人被人民日报重点报导，在全国先后成功建设多处固废资源化示范工程。", "博城机器人与国内外多所高校合作，拥有全国领先的人工智能科学技术团队，针对环卫行业痛点，着力研发智能视觉环卫机器人。围绕智能清洁的主题和为社会环境服务的宗旨，博城不断创新，力求高效率、低成本地解决城市环境问题。" ]
         },
-
-
-
-
-
 
         {
             title: "杭州安誉科技有限公司",

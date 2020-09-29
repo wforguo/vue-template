@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-/cloud-science-day
+dist
 
 # local env files
 .env.local

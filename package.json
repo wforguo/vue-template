@@ -3,13 +3,18 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
+        "prestart": "npm install",
         "dev": "npm run serve",
         "start": "npm run serve",
+        "deploy": "cloudbase framework:deploy",
+        "deploy:client": "cloudbase framework:deploy client",
+        "deploy:server": "cloudbase framework:deploy server",
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@cloudbase/vue-provider": "^0.3.0",
         "axios": "^0.18.0",
         "core-js": "^3.6.5",
         "dayjs": "^1.8.33",
@@ -31,6 +36,7 @@
         "@vue/eslint-config-standard": "^3.0.0",
         "autoprefixer": "^7.1.2",
         "babel-eslint": "^10.1.0",
+        "babel-plugin-import": "^1.13.0",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^6.2.2",
         "less": "^3.0.4",
