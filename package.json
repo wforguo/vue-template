@@ -14,8 +14,6 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
-        "@cloudbase/node-sdk": "^2.3.4",
-        "@cloudbase/vue-provider": "^0.3.0",
         "axios": "^0.18.0",
         "core-js": "^3.6.5",
         "dayjs": "^1.8.33",
@@ -36,6 +34,8 @@
         "@vue/cli-plugin-eslint": "~4.5.0",
         "@vue/cli-service": "~4.5.0",
         "@vue/eslint-config-standard": "^3.0.0",
+        "@cloudbase/node-sdk": "^2.3.4",
+        "@cloudbase/vue-provider": "^0.3.0",
         "autoprefixer": "^7.1.2",
         "babel-eslint": "^10.1.0",
         "babel-plugin-import": "^1.13.0",
