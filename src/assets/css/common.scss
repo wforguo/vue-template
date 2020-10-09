@@ -46,6 +46,14 @@
 }
 
 #app {
-    background: #041A70;
+    background: #01088E;
     overflow: auto;
+}
+.abs {
+    position: absolute;
+}
+.abs-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }

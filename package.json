@@ -77,7 +77,6 @@
                 0
             ],
             "indent": "off",
-            "linebreak-style": "error",
             "vue/script-indent": [
                 "error",
                 4,

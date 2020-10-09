@@ -16,12 +16,15 @@
             document.addEventListener('DOMContentLoaded', setBodyFontSize)
         }
     }
-
     setBodyFontSize();
 
     // set 1rem = viewWidth / 10
     function setRemUnit () {
-        let rem = docEl.clientWidth / 10;
+        let clientWidth = docEl.clientWidth;
+        if (docEl.clientWidth > 540) {
+            clientWidth = 540;
+        }
+        let rem = clientWidth / 10;
         docEl.style.fontSize = rem + 'px'
     }
 
@@ -29,11 +32,11 @@
 
     // reset rem unit on page resize
     window.addEventListener('resize', setRemUnit);
-    window.addEventListener('pageshow', function (e) {
-        if (e.persisted) {
-            setRemUnit()
-        }
-    });
+    // window.addEventListener('pageshow', function (e) {
+    //     if (e.persisted) {
+    //         setRemUnit()
+    //     }
+    // });
 
     // detect 0.5px supports
     if (dpr >= 2) {
