@@ -1,3 +1,8 @@
+/**
+ *@description: 微信分享
+ *@author: forguo
+ *@date: 2020/10/31
+ */
 import axios from 'axios';
 import qs from 'qs';
 
