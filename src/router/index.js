@@ -2,45 +2,30 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store';
 
-const home = resolve => {
+const Home = resolve => {
     require.ensure(['@/pages/Home'], () => {
         resolve(require('@/pages/Home'))
-    }, 'home')
+    }, 'Home')
 };
-const video = resolve => {
+const Video = resolve => {
     require.ensure(['@/pages/Video'], () => {
         resolve(require('@/pages/Video'))
-    }, 'video')
+    }, 'Video')
 };
-const intro = resolve => {
-    require.ensure(['@/pages/Intro'], () => {
-        resolve(require('@/pages/Intro'))
-    }, 'intro')
+const Schedule = resolve => {
+    require.ensure(['@/pages/Schedule'], () => {
+        resolve(require('@/pages/Schedule'))
+    }, 'Schedule')
 };
-const show = resolve => {
+const Show = resolve => {
     require.ensure(['@/pages/Show'], () => {
         resolve(require('@/pages/Show'))
-    }, 'show')
+    }, 'Show')
 };
-const showDetail = resolve => {
-    require.ensure(['@/pages/ShowDetail'], () => {
-        resolve(require('@/pages/ShowDetail'))
-    }, 'showDetail')
-};
-const year = resolve => {
-    require.ensure(['@/pages/Year'], () => {
-        resolve(require('@/pages/Year'))
-    }, 'year')
-};
-const yearDetail = resolve => {
-    require.ensure(['@/pages/YearDetail'], () => {
-        resolve(require('@/pages/YearDetail'))
-    }, 'yearDetail')
-};
-const news = resolve => {
+const News = resolve => {
     require.ensure(['@/pages/News'], () => {
         resolve(require('@/pages/News'))
-    }, 'news')
+    }, 'News')
 };
 
 Vue.use(Router);
@@ -50,76 +35,47 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: home,
+            name: 'Home',
+            component: Home,
             meta: {
                 title: '首页',
                 keepAlive: true // 需要被缓存
             }
         },
         {
-            path: '/video',
-            name: 'video',
-            component: video,
+            path: '/Video',
+            name: 'Video',
+            component: Video,
             meta: {
                 title: '直播',
                 keepAlive: true // 需要被缓存
             }
         },
         {
-            path: '/intro',
-            name: 'intro',
-            component: intro,
+            path: '/Schedule',
+            name: 'Schedule',
+            component: Schedule,
             meta: {
                 title: '信息',
                 keepAlive: true // 需要被缓存
             }
         },
         {
-            path: '/news',
-            name: 'news',
-            component: news,
+            path: '/News',
+            name: 'News',
+            component: News,
             meta: {
                 title: '新闻',
                 keepAlive: true // 需要被缓存
             }
         },
         {
-            path: '/show',
-            name: 'show',
-            component: show,
+            path: '/Show',
+            name: 'Show',
+            component: Show,
             meta: {
                 title: '展厅',
                 keepAlive: true // 需要被缓存
-            }
-        },
-        {
-            path: '/showDetail',
-            name: 'showDetail',
-            component: showDetail,
-            meta: {
-                title: '展厅',
-                activePath: 'show',
-                keepAlive: false // 不需要被缓存
-            }
-        },
-        {
-            path: '/year',
-            name: 'year',
-            component: year,
-            meta: {
-                title: '20周年',
-                keepAlive: true // 需要被缓存
-            }
-        },
-        {
-            path: '/yearDetail',
-            name: 'yearDetail',
-            component: yearDetail,
-            meta: {
-                title: '20周年',
-                activePath: 'year',
-                keepAlive: false // 需要被缓存
             }
         }
     ]

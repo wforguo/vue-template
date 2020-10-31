@@ -3,7 +3,7 @@
         <!-- 音乐播放控件 -->
         <div class="audioCon">
             <audio autoplay
-                   id="audio" loop="loop" src="https://7765-wedding-wxapp-1302175274.tcb.qcloud.la/apps/science-week/static/music.mp3"></audio>
+                   id="audio" loop="loop" src="https://cloud-app-1302175274.file.myqcloud.com/apps/china-goods-publish/music.mp3"></audio>
             <div class="abs play-pauseZ">
                 <p class="playZ"></p>
                 <p class="pauseZ"></p>
@@ -28,12 +28,12 @@
 <style lang="scss">
     .audioCon {
         position: fixed;
-        width: 60px;
-        height: 60px;
+        width: 30px;
+        height: 30px;
         -webkit-background-size: cover;
         background-size: cover;
-        right: 20px;
-        top: 20px;
+        right: 10px;
+        top: 10px;
         z-index: 99999;
         -webkit-animation: none;
         border-radius: 50%;

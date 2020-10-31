@@ -1,33 +1,34 @@
 <template>
-    <div class="index" id="Home">
-        <img alt="" class="index-logo" src="../assets/imgs/index-logo.png" v-show="isTrans">
-        <img alt="" class="index-tips" src="../assets/imgs/index-tips.png" v-show="isTrans">
+    <div class="page index" id="Home">
 
-        <transition name="text">
-            <img alt="" class="index-2020" src="../assets/imgs/2020.png" v-show="isTrans">
-        </transition>
-
-        <transition name="text">
-            <img alt="" class="index-slogan" src="../assets/imgs/index-slogan.png" v-show="isTrans">
-        </transition>
-
-        <transition name="text">
-            <img alt="" class="index-title" src="../assets/imgs/index-title.png" v-show="isTrans">
-        </transition>
-
-        <transition name="text">
-            <div class="index-gov" v-show="isTrans">
-                <p class="index-gov-title">主办单位：</p>
-                <p>浙江省科学技术厅 <span></span> 中共浙江省委宣传部 <span></span> 浙江省卫生健康委员会</p>
-                <p>浙江省科学技术协会 <span></span> 杭州市人民政府 <span></span> 江干区人民政府</p>
+        <transition name="logo">
+            <div class="index-logo" v-show="isTrans">
+                <img src="../assets/imgs/index-logo.png" alt="">
             </div>
         </transition>
 
-        <transition name="text">
-            <img alt="" class="index-city" src="../assets/imgs/bottom-city.png" v-show="isTrans">
+        <transition name="slogan">
+            <div class="index-slogan" v-show="isTrans">
+                <img src="../assets/imgs/index-slogan.png" alt="">
+            </div>
         </transition>
-        <transition name="text">
-            <img alt="" class="index-city-shadow" src="../assets/imgs/bottom-city-shadow.png" v-show="isTrans">
+
+        <transition name="tips">
+            <div class="index-tips" v-show="isTrans">
+                <img src="../assets/imgs/index-tips.png" alt="">
+            </div>
+        </transition>
+
+        <transition name="online">
+            <div class="index-online" v-show="isTrans">
+                <img src="../assets/imgs/index-online.png" alt="">
+            </div>
+        </transition>
+
+        <transition name="bottom">
+            <div class="index-bottom" v-show="isTrans">
+                <img src="../assets/imgs/index-bottom.png" alt="">
+            </div>
         </transition>
 
     </div>
@@ -37,137 +38,127 @@
     // @ is an alias to /src
 
     export default {
-        name: 'home',
+        name: 'Home',
         data () {
             return {
                 isTrans: false
             }
         },
         mounted () {
-            this.isTrans = true
+            setTimeout(() => {
+                this.isTrans = true;
+            }, 100);
         }
     }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
     .index {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-size: 100% 100%;
+        background-color: #F2F2F2;
+        background-image: url("https://cloud-app-1302175274.file.myqcloud.com/apps/china-goods-publish/imgs/index-bg.jpg");
+        background-size: cover;
         background-position: 50% 50%;
         background-repeat: no-repeat;
-        overflow: hidden;
 
-        &-2020 {
+        &-logo {
             position: absolute;
-            width: 487px;
-            height: 257px;
-            top: 50%;
+            width: 77px;
+            height: 65px;
+            top: 55px;
             left: 50%;
-            transform: translate3d(-50%, -390px, 0);
-
-            &.text-enter {
+            transform: translate3d(-50%, -0, 0);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            &.logo-enter {
                 opacity: 0;
             }
 
-            &.text-enter-active {
-                transition: all 1.5s 300ms;
+            &.logo-enter-active {
+                transition: all 1s 50ms;
             }
         }
 
         &-slogan {
             position: absolute;
-            width: 622px;
-            height: 34px;
-            top: 50%;
+            width: 308px;
+            height: 90px;
+            top: 166px;
             left: 50%;
-            transform: translate3d(-50%, -180px, 0);
-
-            &.text-enter {
-                opacity: 0;
+            margin-left: -154px;
+            img {
+                width: 100%;
+                height: 100%;
             }
-
-            &.text-enter-active {
-                transition: all 1.5s 600ms;
+            &.slogan-enter {
+                opacity: 0;
+                transform: translate3d(0, -80px, 0);
+            }
+            &.slogan-enter-active {
+                transition: all 1s 250ms;
+                transform: none;
             }
         }
 
-        &-title {
+        &-tips {
             position: absolute;
-            width: 525px;
-            height: 62px;
-            top: 50%;
+            width: 185px;
+            height: 50px;
+            top: 280px;
             left: 50%;
-            transform: translate3d(-50%, -30px, 0);
-
-            &.text-enter {
-                opacity: 0;
+            margin-left: (-185px/2);
+            img {
+                width: 100%;
+                height: 100%;
             }
-
-            &.text-enter-active {
-                transition: all 1.5s 1000ms;
+            &.tips-enter {
+                opacity: 0;
+                transform: translate3d(0, -80px, 0);
+            }
+            &.tips-enter-active {
+                transition: all 1s 450ms;
+                transform: none;
             }
         }
 
-        &-gov {
+        &-online {
             position: absolute;
-            width: 600px;
+            width: 193px;
+            height: 26px;
             top: 50%;
             left: 50%;
-            transform: translate3d(-50%, 300px, 0);
-            text-align: center;
-            color: #fff;
-            font-size: 20px;
-            line-height: 38px;
-
-            &.text-enter {
+            margin-left: (-193px/2);
+            margin-top: 170px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            &.online-enter {
                 opacity: 0;
             }
-
-            &.text-enter-active {
-                transition: all 1.5s 1400ms;
-            }
-
-            &-title {
-                font-weight: bolder !important;
-                opacity: 1 !important;
-            }
-
-            span {
-                display: inline-block;
-                margin: 0 6px;
-            }
-
-            p {
-                opacity: 0.85;
-                font-weight: normal;
+            &.online-enter-active {
+                transition: all 1s 850ms;
             }
         }
 
-        &-city {
+        &-bottom {
             position: absolute;
-            width: 750px;
-            height: 185px;
-            bottom: 141px;
+            width: 136px;
+            height: 29px;
+            top: 50%;
             left: 50%;
-            transform: translate3d(-50%, 0, 0);
-
-            &-shadow {
-                position: absolute;
-                width: 750px;
-                height: 141px;
-                bottom: 0px;
-                left: 50%;
-                transform: translate3d(-50%, 0, 0);
+            margin-left: (-136px/2);
+            margin-top: 215px;
+            img {
+                width: 100%;
+                height: 100%;
             }
-
-            &.text-enter {
+            &.bottom-enter {
                 opacity: 0;
             }
-
-            &.text-enter-active {
-                transition: all 1.5s 300ms;
+            &.bottom-enter-active {
+                transition: all 1s 950ms;
             }
         }
     }

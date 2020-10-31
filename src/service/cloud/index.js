@@ -12,6 +12,7 @@ const app = cloud.init({
 });
 
 const db = app.database();
+// eslint-disable-next-line no-unused-vars
 const _ = db.command;
 
 /***

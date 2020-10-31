@@ -1,18 +1,9 @@
 <template>
-    <div class="news" id="newsPage">
-        <transition name="text">
-            <img alt="" class="index-logo" src="../assets/imgs/index-logo.png" v-show="isTrans">
-        </transition>
-        <transition name="text">
-            <img alt="" class="index-tips" src="../assets/imgs/index-tips.png" v-show="isTrans">
-        </transition>
+    <div class="page news" id="News">
+        <HeadTitle title="新闻" />
 
-        <div class="header-title">
-            <p class="header-title-main">新闻报道</p>
-            <p class="header-title-second">NEWS REPORT</p>
-        </div>
         <div class="news-list" v-if="newsList.length > 0">
-            <div :key="index" @click="navNews(item.url)" class="news-item" v-for="(item,index) in newsList">
+            <div :key="index" @click="navNews(item.url)" class="news-item btn-hover" v-for="(item,index) in newsList">
                 <div :style="{backgroundImage: 'url(' + item.src + ')'}" alt="" class="news-img"></div>
                 <div class="news-msg">{{item.msg}}</div>
             </div>
@@ -25,17 +16,23 @@
 
 <script>
     // @ is an alias to /src
+    import HeadTitle from '../components/HeadTitle';
 
     export default {
-        name: 'news',
+        name: 'News',
         data () {
             return {
                 isTrans: false,
                 newsList: window.newsList
             }
         },
+        components: {
+            HeadTitle
+        },
         mounted () {
-            this.isTrans = true
+            setTimeout(() => {
+                this.isTrans = true;
+            }, 100);
         },
         methods: {
             navNews (url) {
@@ -45,40 +42,33 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
     .news {
         position: relative;
-        width: 100%;
-        height: calc(100vh - 135px);
-        background-size: 100% 100%;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        overflow-y: auto;
 
         .news-list {
             width: 100%;
             height: auto;
+            margin-top: 34px;
+            margin-bottom: 35px;
+            overflow-y: auto;
         }
 
         .news-item {
-            width: 622px;
-            margin: 0 auto 45px;
-            height: 167px;
-            background: rgba(233, 233, 233, 0.32);
+            margin: 0 auto 14px;
+            width: 345px;
+            height: 91px;
+            background: #DDDDDD;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            &:active {
-                opacity: 0.75;
-            }
+            box-shadow: 2px 2px 8px 1px rgba(51,51,51,0.19);
         }
 
         .news-img {
-            width: 188px;
-            height: 167px;
+            width: 122px;
+            height: 91px;
             background-repeat: no-repeat;
             background-position: 50% 50%;
             background-size: cover;
@@ -86,18 +76,18 @@
         }
 
         .news-msg {
-            width: 622px - 188px - 40px;
-            height: 167px - 34px;
-            padding: 14px 20px 20px;
-            font-size: 25px;
+            box-sizing: border-box;
+            width: 345px - 135px;
+            height: 71px;
+            padding: 5px 2px 10px 10px;
+            font-size: 14px;
             font-weight: 400;
-            color: rgba(255, 255, 255, 1);
-            line-height: 37px;
-
+            color: #333;
+            line-height: 23px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            -webkit-line-clamp: 4; // 要显示的行数
+            -webkit-line-clamp: 3; // 要显示的行数
             -webkit-box-orient: vertical;
         }
     }

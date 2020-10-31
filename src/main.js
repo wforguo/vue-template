@@ -40,6 +40,11 @@ new Vue({
         } catch (e) {
             console.log(e);
         }
+        // // eslint-disable-next-line no-undef
+        // Pace.on('hide', function () {
+        //     $('#loading').remove();
+        //     $('.pace').remove();
+        // });
         const titlePrefix = process.env.NODE_ENV === 'development' ? '【Dev】' : '【Pro】';
         console.log(`%c Environment %c ${titlePrefix || '【Dev】'}`, 'padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060', 'padding: 1px 5px 1px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42c02e');
         console.log(`%c Version %c ${process.env.VUE_APP_VERSION}`, 'padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060', 'padding: 1px 5px 1px 1px; border-radius: 0 3px 3px 0; color: #fff; background: #1475b2');

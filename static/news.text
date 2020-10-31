@@ -1,7 +1,0 @@
-window.newsList = [
-    {
-        url: 'https://mp.weixin.qq.com/s/4TzbiNl4fdBJ0c7Pu9vZBw',
-        src: 'https://forguo-1302175274.cos.ap-shanghai.myqcloud.com/apps/science-week/imgs/%E9%A9%AC%E5%85%8B%E4%BF%A1%E6%81%AF/%E6%96%B0%E9%97%BB%E5%9B%BE.jpg',
-        msg: '科技活动周等你解锁'
-    },
-];

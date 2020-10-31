@@ -12,7 +12,7 @@ export default function () {
             return false;
         }
     };
-// 屏蔽右键单击
+    // 屏蔽右键单击
     document.oncontextmenu = function () {
         return false;
     };

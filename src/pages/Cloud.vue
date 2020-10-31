@@ -1,6 +1,6 @@
 <template>
-    <div class="hello">
-        <h4>====== 云上 - 云开发 ======</h4>
+    <div class="page cloud">
+        <h4>====== 云上 · 云开发 ======</h4>
 
         <template v-if="isLoginSuccss">
             <LoginState v-slot="{ loginState }">
@@ -25,10 +25,10 @@
 </template>
 
 <script>
-    import { Button } from 'vant';
+    import { Button, Toast, Dialog } from 'vant';
 
     export default {
-        name: 'HelloWorld',
+        name: 'Cloud',
         data () {
             return {
                 isLoginSuccss: null,
@@ -64,15 +64,36 @@
         methods: {
             async callFunction () {
                 try {
+                    Toast.loading({
+                        message: '加载中...',
+                        forbidClick: true
+                    });
                     const res = await this.$cloudbase.callFunction({
                         name: 'china-goods-check-user',
                         data: {
                             userMobile: '10086'
                         }
                     });
-                    this.userList = res.result.data;
+                    Toast.clear();
+                    if (res.result.data && res.result.data.length > 0) {
+                        this.userList = res.result.data;
+                    } else {
+                        Dialog.alert({
+                            title: '提示',
+                            message: '您不在受邀名单，请联系主办方！'
+                        }).then(() => {
+                            // on close
+                        });
+                    }
                 } catch (e) {
+                    Toast.clear();
                     this.userList = [];
+                    Dialog.alert({
+                        title: '提示',
+                        message: '您不在受邀名单，请联系主办方！'
+                    }).then(() => {
+                        // on close
+                    });
                 }
             }
         }
@@ -80,8 +101,8 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    .hello {
+<style lang="scss" scoped>
+    .cloud {
         max-width: 500px;
         margin: 0 auto;
         word-break: break-all;

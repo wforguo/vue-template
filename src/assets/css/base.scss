@@ -103,12 +103,12 @@ body {
     /* .slide-fade-leave-active for below version 2.1.8 */
 {
     transform: translateY(10px);
-    opacity: 0.3;
+    opacity: 0.95;
 }
 
 .slide-fade-leave-to {
     transform: translateY(5px);
-    opacity: 0.3;
+    opacity: 0.95;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -117,7 +117,7 @@ body {
 
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */
 {
-    opacity: 0
+    //opacity: 0
 }
 
 ::-webkit-scrollbar {

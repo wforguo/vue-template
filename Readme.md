@@ -52,7 +52,7 @@ module.exports = {
         autoprefixer: {},
         // +
         'postcss-pxtorem': {
-            rootValue: 37.5,//结果为：设计稿元素尺寸/16，比如元素宽320px,最终页面会换算成 20rem
+            rootValue: 75,//结果为：设计稿元素尺寸/16，比如元素宽320px,最终页面会换算成 20rem
             propList: ['*']
         }
         // +
@@ -80,6 +80,10 @@ module.exports = {
 
 https://github.com/ConnorAtherton/loaders.css
 
+## pace进度条
+
+https://github.hubspot.com/pace/docs/welcome/
+
 ## 云开发
 
 ### demo
@@ -92,6 +96,10 @@ https://github.com/ConnorAtherton/loaders.css
 
 - 2.修改项目部署路径 `vueconfig.js`
 
-## 链接
+## videojs
 
-- https://app.forguo.cn/apps/cloud-app
+[https://github.com/videojs/video.js](https://github.com/videojs/video.js)
+
+## 测试链接
+
+- https://cloud-app.com.cn/apps/cloud-app-vue

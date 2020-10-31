@@ -28,7 +28,7 @@ module.exports = {
         port: '10086',
         proxy: {
             '/api': {
-                target: 'https://forguo.cn',
+                target: 'https://cloud-app.com.cn',
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
@@ -38,7 +38,6 @@ module.exports = {
         }
     },
     publicPath: process.env.NODE_ENV === 'production'
-        ? 'https://app.forguo.cn/apps/cloud-app'
-        // ? 'https://cms.forguo.cn/apps-t/cloud-app'
+        ? 'https://cloud-app.com.cn/apps/cloud-app-vue'
         : '/'
 };
