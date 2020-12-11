@@ -103,3 +103,11 @@ https://github.hubspot.com/pace/docs/welcome/
 ## 测试链接
 
 - https://cloud-app.com.cn/apps/cloud-app-vue
+
+## 路由
+
+不能使用hash模式，云开发服务器没有做配置，刷新会出现404
+
+如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html
+
+[history-mode](https://router.vuejs.org/zh/guide/essentials/history-mode.html)
