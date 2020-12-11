@@ -31,7 +31,8 @@ const News = resolve => {
 Vue.use(Router);
 
 const router = new Router({
-    // base: process.env.BASE_URL,
+    base: '/apps/cloud-app-vue/',
+    mode: 'history',
     routes: [
         {
             path: '/',
